@@ -1,4 +1,4 @@
-const  mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const myProductSchema = new mongoose.Schema(
   {
@@ -31,10 +31,7 @@ const myProductSchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
-    currency: {
-      type: String,
-      default: "USD",
-    },
+
     images: [
       {
         url: { type: String, required: true },
@@ -58,19 +55,7 @@ const myProductSchema = new mongoose.Schema(
         createdAt: { type: Date, default: Date.now },
       },
     ],
-    sku: {
-      type: String,
-      unique: true,
-    },
-    dimensions: {
-      length: { type: Number, required: false },
-      width: { type: Number, required: false },
-      height: { type: Number, required: false },
-    },
-    weight: {
-      type: Number,
-      required: false,
-    },
+
     shippingCost: {
       type: Number,
       default: 0,
@@ -81,13 +66,11 @@ const myProductSchema = new mongoose.Schema(
         cost: { type: Number, required: false },
       },
     ],
-   
-    
   },
   {
     timestamps: true,
   }
 );
 
-const Product = mongoose.model("Product", myProductSchema);  
-module.exports = Product; 
+const Product = mongoose.model("Product", myProductSchema);
+module.exports = Product;

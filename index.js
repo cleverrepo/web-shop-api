@@ -16,11 +16,14 @@ const bookmarkRoutes = require('./Routes/bookmark.routes.js');
 const wishRouter = require('./Routes/wishlist.route.js')
 const userRouter = require('./Routes/user.routes.js'); 
 const adminRoutes = require('./Controller/adminAuth.js');
-
+const cors=require("cors")
 
 const port = process.env.PORT || 3000;
 
 // Middleware
+// allows to access flutter
+app.use(cors({ credentials: true, origin: 'http://localhost:5000' }));
+
 app.use(express.json());
 
 // Routes
