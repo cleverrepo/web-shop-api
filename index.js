@@ -22,7 +22,10 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 // allows to access flutter
-app.use(cors({ credentials: true, origin: 'http://localhost:5000' }));
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:5000', 'https://web-shop-api-dzze.onrender.com']
+}));
 
 app.use(express.json());
 
@@ -36,7 +39,7 @@ app.use('/api/admin', adminRoutes);
 
 
 
-// Connect to MongoDB and if successsful, start the server otherwise throw and error 
+// Connect to MongoDB and if successful, start the server otherwise throw and error 
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {

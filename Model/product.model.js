@@ -46,6 +46,11 @@ const myProductSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    category: {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Category", 
+      required: [true, "Please specify the product category"],
+    },
     reviews: [
       {
         userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },

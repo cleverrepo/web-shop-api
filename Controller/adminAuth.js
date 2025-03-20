@@ -15,7 +15,7 @@ const adminAuthMiddleware = async (req, res, next) => {
       return res.status(403).json({ message: 'Access denied: Admins only' });
     }
 
-    req.user = user; // Attach admin user details to the request
+    req.user = user; 
     next();
   } catch (err) {
     return res.status(403).json({ message: 'Invalid or expired token' });
